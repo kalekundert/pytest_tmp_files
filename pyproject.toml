@@ -1,0 +1,49 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "pytest_tmp_files"
+authors = [
+  {name = "Kale Kundert", email = "kale@thekunderts.net"},
+]
+readme = 'README.rst'
+requires-python = "~=3.7"
+dependencies = [
+]
+
+[project.optional-dependencies]
+test = [
+  'pytest',
+  'pytest-cov',
+  'parametrize_from_file',
+  'coveralls',
+]
+doc = [
+  'sphinx',
+  'sphinx_rtd_theme',
+  'autoclasstoc',
+]
+
+[project.urls]
+'Documentation' = 'https://pytest_tmp_files.readthedocs.io/en/latest/'
+'Version Control' = 'https://github.com/kalekundert/pytest_tmp_files'
+'Bug Tracker' = 'https://github.com/kalekundert/pytest_tmp_files/issues'
+'Continuous Integration' = 'https://github.com/kalekundert/pytest_tmp_files/actions'
+'Test Coverage' = 'https://coveralls.io/github/kalekundert/pytest_tmp_files'
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules --doctest-glob='*.rst'"
+doctest_optionflags = 'NORMALIZE_WHITESPACE'
+
+[tool.pccc]
+header_length = 72
+types = ["chore", "docs", "feat", "fix", "refactor", "style", "test"]
+ignore_generated_commits = true
+generated_commits = ['^Merge']
+
+[tool.semantic_release]
+branch = 'release'
+version_variable = 'pytest_tmp_files/__init__.py:__version__'
+build_command = 'python -m pip install flit && flit build'
+major_on_zero = false
