@@ -8,15 +8,16 @@ authors = [
   {name = "Kale Kundert", email = "kale@thekunderts.net"},
 ]
 readme = 'README.rst'
+dynamic = ["version", "description"]
 requires-python = "~=3.7"
 dependencies = [
+  'python-dateutil',
 ]
 
 [project.optional-dependencies]
 test = [
   'pytest',
   'pytest-cov',
-  'parametrize_from_file',
   'coveralls',
 ]
 doc = [
@@ -24,6 +25,9 @@ doc = [
   'sphinx_rtd_theme',
   'autoclasstoc',
 ]
+
+[project.entry-points.pytest11]
+tmp_files = 'pytest_tmp_files.plugin'
 
 [project.urls]
 'Documentation' = 'https://pytest_tmp_files.readthedocs.io/en/latest/'
