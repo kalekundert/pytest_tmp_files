@@ -1,6 +1,6 @@
-****************
-pytest_tmp_files
-****************
+*************************************
+Temporary file hierarchies for pytest
+*************************************
 
 .. image:: https://img.shields.io/pypi/v/pytest_tmp_files.svg
    :alt: Last release
