@@ -20,7 +20,6 @@ nitpicky = True
 ## Extensions
 
 extensions = [
-        'autoclasstoc',
         'sphinx.ext.autodoc',
         'sphinx.ext.autosummary',
         'sphinx.ext.viewcode',
@@ -30,6 +29,7 @@ extensions = [
 ]
 intersphinx_mapping = {
         'python': ('https://docs.python.org/3', None),
+        'pytest': ('https://docs.pytest.org/en/stable', None),
 }
 autosummary_generate = True
 autodoc_default_options = {
@@ -38,3 +38,10 @@ autodoc_default_options = {
 html_theme = 'sphinx_rtd_theme'
 pygments_style = 'sphinx'
 
+def setup(app):
+    app.add_crossref_type(
+            "fixture",
+            "fixture",
+            objname="built-in fixture",
+            indextemplate="pair: %s; fixture",
+    )
