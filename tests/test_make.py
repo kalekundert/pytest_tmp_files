@@ -225,11 +225,11 @@ def test_set_mode(mode_str, mode_bits, tmp_path):
         'meta, atime, mtime', [
             # For `mtime` and `atime`, `None` means "original time".
             ({}, None, None),
-            ({'atime': '2022-03-11T07:00:00'}, 1647000000, None),
-            ({'mtime': '2022-03-11T07:00:00'}, None, 1647000000),
+            ({'atime': '2022-03-11T12:00:00Z'}, 1647000000, None),
+            ({'mtime': '2022-03-11T12:00:00Z'}, None, 1647000000),
             ({
-                'atime': '2022-03-11T07:00:00',
-                'mtime': '2022-03-11T07:00:00',
+                'atime': '2022-03-11T12:00:00Z',
+                'mtime': '2022-03-11T12:00:00Z',
              }, 1647000000, 1647000000),
         ],
 )
