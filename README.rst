@@ -34,7 +34,9 @@ fills in that directory with any files needed for that test.
 
 The files to create are specified by a dictionary provided to fixture via 
 `indirect parametrization`_.  For example, here's a test for a function that 
-searches for files whose contents match a given regular expression::
+searches for files whose contents match a given regular expression:
+
+.. code-block:: python
 
   import pytest, re
   from pathlib import Path
