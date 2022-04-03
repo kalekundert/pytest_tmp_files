@@ -43,7 +43,7 @@ def make_hard_link(path, meta):
     if sys.version_info[:2] >= (3, 10):
         path.hardlink_to(target)
     else:
-        path.link_to(target)
+        target.link_to(path)
 
 @tmp_file_type('symlink')
 def make_soft_link(path, meta):
