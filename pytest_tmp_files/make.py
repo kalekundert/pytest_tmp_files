@@ -31,24 +31,27 @@ def tmp_file_type(type: str):
 
         .. code-block::
 
-            @tmp_file_type
-            def make_json_file(path, meta):
-                import json
-                with open(path) as f:
-                    json.dump(meta['content'], f)
+            >>> from pytest_tmp_files import *
+            >>> @tmp_file_type('json')
+            ... def make_json_file(path, meta):
+            ...     import json
+            ...     with open(path, 'w') as f:
+            ...         json.dump(meta['content'], f)
+            ...
 
         Here's how this custom file type could be used:
 
         .. code-block::
 
             >>> from pathlib import Path
-            >>> from pytest_tmp_files import make_files
             >>> make_files(Path.cwd(), {
             ...     'demo.json': {
             ...         'type': 'json',
             ...         'content': {'a': 1},
             ...     }
             ... })
+            >>> (Path.cwd() / 'demo.json').read_text()
+            '{"a": 1}'
 
         Note that this is just an example; in real applications I'd recommend 
         writing JSON files like this by hand.
@@ -83,7 +86,7 @@ def make_files(root: Path, manifest: dict):
             >>> from pytest_tmp_files import make_files
             >>> make_files(Path.cwd(), {'dir/greeting.txt': 'hello world!'})
             >>> (Path.cwd() / 'dir' / 'greeting.txt').read_text()
-            hello world!
+            'hello world!'
     """
     for path, meta in manifest.items():
         make_file(root / path, meta)
