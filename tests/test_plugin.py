@@ -3,7 +3,6 @@ pytest_plugins = ['pytester']
 def test_tmp_files_indirect(testdir):
     testdir.makefile('.py', """\
             import pytest
-            import pytest_tmp_files
 
             @pytest.mark.parametrize(
                     'tmp_files, expected', [
@@ -22,7 +21,6 @@ def test_tmp_files_indirect(testdir):
 def test_tmp_files_manifest(testdir):
     testdir.makefile('.py', """\
             import pytest
-            import pytest_tmp_files
 
             MANIFEST = {
                     'a': 'a',
