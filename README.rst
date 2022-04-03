@@ -33,7 +33,7 @@ to creating a unique temporary directory for each test, ``tmp_files`` also
 fills in that directory with any files needed for that test.
 
 The files to create are specified by a dictionary provided to fixture via 
-`indirect parametrization`__.  For example, here's a test for a function that 
+`indirect parametrization`_.  For example, here's a test for a function that 
 searches for files whose contents match a given regular expression::
 
   import pytest, re
