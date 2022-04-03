@@ -40,10 +40,9 @@ def make_hard_link(path, meta):
     path.parent.mkdir(parents=True, exist_ok=True)
     target = path.parent / meta['target']
 
-    if sys.version_info[:2] >= (3, 10):
-        path.hardlink_to(target)
-    else:
-        target.link_to(path)
+    # Pathlib doesn't get a consistent API for making hard links until python 
+    # 3.10, so just use `os.link()` instead.
+    os.link(target, path)
 
 @tmp_file_type('symlink')
 def make_soft_link(path, meta):
