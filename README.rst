@@ -74,8 +74,10 @@ The keys are file paths and the values are file contents, so ``{'a/b': 'x'}``
 specifies a subdirectory ``a`` containing a text file ``b`` with the contents 
 ``x``.  Although not shown here, it's also possible to create different kinds 
 of files (e.g. binary files, symlinks, hard links, named FIFOs) and to specify 
-file metadata (e.g. permissions, modification times).  See the documentation 
-for details.
+file metadata (e.g. permissions, modification times).
+
+Check out the documentation_ for more information.
 
 .. _`indirect parametrization`: https://docs.pytest.org/en/latest/example/parametrize.html#indirect-parametrization
+.. _documentation: https://pytest_tmp_files.readthedocs.io/en/latest/
 
