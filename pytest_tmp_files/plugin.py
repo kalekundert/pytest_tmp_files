@@ -7,6 +7,12 @@ def tmp_files(request, tmp_path):
     An extension of :std:fixture:`tmp_path` that can create a temporary file 
     hierarchy when indirectly parametrized.
 
+    Returns:
+        The object provided to the test function by this fixture will be a 
+        `pathlib.Path` referring to the temporary directory that was 
+        created.  This path will also have a *manifest* attribute containing 
+        the dictionary that specified which files to create.
+
     In order to use this fixture, simply specify *tmp_files* as an argument to 
     any of your test functions.  There's no need to import anything; this 
     plugin installs itself so that pytest will automatically be able to find 
