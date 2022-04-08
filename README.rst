@@ -76,8 +76,14 @@ specifies a subdirectory ``a`` containing a text file ``b`` with the contents
 of files (e.g. binary files, symlinks, hard links, named FIFOs) and to specify 
 file metadata (e.g. permissions, modification times).
 
+If this plugin sounds useful to you, you may also be interested in `Parametrize 
+From File`_.  These two packages work really well together, because 
+``tmp_files`` lends itself to long, multi-line parameters and *Parametrize From 
+File* makes such parameters easier to manage.
+
 .. _`indirect parametrization`: https://docs.pytest.org/en/latest/example/parametrize.html#indirect-parametrization
-.. _documentation: https://pytest_tmp_files.readthedocs.io/en/latest/
+.. _documentation: https://pytest_tmp_files.readthedocs.io/
+.. _`Parametrize From File`: https://parametrize-from-file.readthedocs.io/
 
 Check out the documentation_ for more information.
 
