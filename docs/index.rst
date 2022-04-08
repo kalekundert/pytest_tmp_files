@@ -1,4 +1,5 @@
 .. include:: ../README.rst
+   :end-before: Check out
 
 .. toctree::
    :maxdepth: 2

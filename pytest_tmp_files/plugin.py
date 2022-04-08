@@ -14,7 +14,7 @@ def tmp_files(request, tmp_path):
 
     You must use `indirect parametrization`_ to specify which files to create.  
     Any dictionary matching the format described :doc:`here </file_spec>` can be used 
-    as a parameter.  Here an example of what this looks like:
+    as a parameter.  Here's an example of what this looks like:
 
     .. code-block:: python
 
