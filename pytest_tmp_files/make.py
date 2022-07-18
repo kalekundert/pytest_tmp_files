@@ -25,36 +25,62 @@ def tmp_file_type(type: str):
 
     Example:
 
-        The following snippet defines a custom file type called "json".  It 
-        expects the metadata to include a "content" field, which it will encode 
-        as JSON and write to the indicated path.
+        The following snippet defines a custom file type called "xlsx" for 
+        making Excel spreadsheets.  It's hard to write tests involving these 
+        files because they have a binary format.  This file type helps by 
+        allowing each sheet to be specified in the CSV format.  Specifically, 
+        this file type expects the metadata to include a field called 'sheets', 
+        which should be a dictionary mapping sheet names to CSV strings.
+
+        I apologize if this example is a bit hard to understand, on account of 
+        using a third-party library and just having a lot of code.  I chose 
+        this example because (i) it was a real problem I had to solve for 
+        myself and (ii) it perfectly embodies the intended use-case of this 
+        function, which is to make it easier to parametrize binary files. 
 
         .. code-block::
 
             >>> from pytest_tmp_files import *
-            >>> @tmp_file_type('json')
-            ... def make_json_file(path, meta):
-            ...     import json
-            ...     with open(path, 'w') as f:
-            ...         json.dump(meta['content'], f)
+            >>> @tmp_file_type('xlsx')
+            ... def make_xlsx_file(path, meta):
+            ...     import csv, io, openpyxl
+            ...     wb = openpyxl.Workbook()
             ...
+            ...     def iter_worksheets():
+            ...         for i, title in enumerate(meta['sheets']):
+            ...             if i == 0:
+            ...                 wb.active.title = title
+            ...                 yield wb.active
+            ...             else:
+            ...                 yield wb.create_sheet(title)
+            ...
+            ...     for ws in iter_worksheets():
+            ...         content = meta['sheets'][ws.title]
+            ...         content_io = io.StringIO(content)
+            ...
+            ...         for i, row in enumerate(csv.reader(content_io), 1):
+            ...             for j, value in enumerate(row, 1):
+            ...                 ws.cell(i, j).value = value
+            ...
+            ...     wb.save(path)
 
         Here's how this custom file type could be used:
 
         .. code-block::
 
-            >>> from pathlib import Path
             >>> make_files(Path.cwd(), {
-            ...     'demo.json': {
-            ...         'type': 'json',
-            ...         'content': {'a': 1},
+            ...     'demo.xlsx': {
+            ...         'type': 'xlsx',
+            ...         'sheets': {'Sheet1': "Hello,World"},
             ...     }
             ... })
-            >>> (Path.cwd() / 'demo.json').read_text()
-            '{"a": 1}'
-
-        Note that this is just an example; in real applications I'd recommend 
-        writing JSON files like this by hand.
+            ...
+            >>> from openpyxl import load_workbook
+            >>> wb = load_workbook('demo.xlsx')
+            >>> wb['Sheet1']['A1'].value
+            'Hello'
+            >>> wb['Sheet1']['B1'].value
+            'World'
     """
     def decorator(f):
         FACTORIES[type] = f
