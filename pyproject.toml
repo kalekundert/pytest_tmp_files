@@ -45,7 +45,6 @@ doctest_optionflags = 'NORMALIZE_WHITESPACE'
 
 [tool.coverage.run]
 branch = true
-parallel = true
 source = ['pytest_tmp_files']
 
 [tool.coverage.report]
