@@ -14,7 +14,7 @@ Temporary file hierarchies for pytest
    :alt: Documentation
    :target: https://pytest_tmp_files.readthedocs.io/en/latest/?badge=latest
 
-.. image:: https://img.shields.io/github/workflow/status/kalekundert/pytest_tmp_files/Test%20and%20release/master
+.. image:: https://img.shields.io/github/actions/workflow/status/kalekundert/pytest_tmp_files/test_and_release.yml?branch=master
    :alt: Test status
    :target: https://github.com/kalekundert/pytest_tmp_files/actions
 
