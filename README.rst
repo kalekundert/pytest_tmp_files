@@ -14,13 +14,13 @@ Temporary file hierarchies for pytest
    :alt: Documentation
    :target: https://pytest_tmp_files.readthedocs.io/en/latest/?badge=latest
 
-.. image:: https://img.shields.io/github/actions/workflow/status/kalekundert/pytest_tmp_files/test_and_release.yml?branch=master
+.. image:: https://img.shields.io/github/actions/workflow/status/kalekundert/pytest_tmp_files/test.yml?branch=master
    :alt: Test status
    :target: https://github.com/kalekundert/pytest_tmp_files/actions
 
-.. image:: https://img.shields.io/coveralls/kalekundert/pytest_tmp_files.svg
+.. image:: https://img.shields.io/codecov/c/gh/kalekundert/pytest_tmp_files.svg
    :alt: Test coverage
-   :target: https://coveralls.io/github/kalekundert/pytest_tmp_files?branch=master
+   :target: https://app.codecov.io/gh/kalekundert/pytest_tmp_files
 
 .. image:: https://img.shields.io/github/last-commit/kalekundert/pytest_tmp_files?logo=github
    :alt: Last commit
