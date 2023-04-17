@@ -12,7 +12,7 @@ Temporary file hierarchies for pytest
 
 .. image:: https://img.shields.io/readthedocs/pytest_tmp_files.svg
    :alt: Documentation
-   :target: https://pytest_tmp_files.readthedocs.io/en/latest/?badge=latest
+   :target: https://pytest-tmp-files.readthedocs.io/
 
 .. image:: https://img.shields.io/github/actions/workflow/status/kalekundert/pytest_tmp_files/test.yml?branch=master
    :alt: Test status
@@ -82,7 +82,7 @@ From File`_.  These two packages work really well together, because
 File* makes such parameters easier to manage.
 
 .. _`indirect parametrization`: https://docs.pytest.org/en/latest/example/parametrize.html#indirect-parametrization
-.. _documentation: https://pytest_tmp_files.readthedocs.io/
+.. _documentation: https://pytest-tmp-files.readthedocs.io/
 .. _`Parametrize From File`: https://parametrize-from-file.readthedocs.io/
 
 Check out the documentation_ for more information.
