@@ -33,7 +33,7 @@ doc = [
 tmp_files = 'pytest_tmp_files.plugin'
 
 [project.urls]
-'Documentation' = 'https://pytest_tmp_files.readthedocs.io/en/latest/'
+'Documentation' = 'https://pytest-tmp-files.readthedocs.io/en/latest/'
 'Version Control' = 'https://github.com/kalekundert/pytest_tmp_files'
 'Bug Tracker' = 'https://github.com/kalekundert/pytest_tmp_files/issues'
 'Continuous Integration' = 'https://github.com/kalekundert/pytest_tmp_files/actions'
