@@ -42,6 +42,10 @@ tmp_files = 'pytest_tmp_files.plugin'
 [tool.pytest.ini_options]
 addopts = "--doctest-modules --doctest-glob='*.rst'"
 doctest_optionflags = 'NORMALIZE_WHITESPACE'
+filterwarnings = [
+  "error",
+  'ignore:datetime\.datetime\..* is deprecated:DeprecationWarning',
+]
 
 [tool.coverage.run]
 branch = true
