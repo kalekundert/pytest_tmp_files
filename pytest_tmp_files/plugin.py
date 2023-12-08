@@ -59,7 +59,7 @@ def tmp_files(request, tmp_path):
     class TestPath(type(tmp_path)):
         __slots__ = ('manifest',)
 
-    tmp_path = TestPath._from_parts([tmp_path])
+    tmp_path = TestPath(tmp_path)
     tmp_path.manifest = request.param
 
     make_files(tmp_path, request.param)
