@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           # Make sure the whole repository history is present, so that 
           # python-semantic-release can decide if a new release is needed.
