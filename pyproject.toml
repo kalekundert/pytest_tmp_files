@@ -53,12 +53,6 @@ exclude_lines = [
     "^\\s*raise NotImplementedError\\b",
 ]
 
-[tool.pccc]
-header_length = 72
-types = ["chore", "docs", "feat", "fix", "refactor", "style", "test"]
-ignore_generated_commits = true
-generated_commits = ['^Merge']
-
 [tool.semantic_release]
 branch = 'release'
 version_variable = 'pytest_tmp_files/__init__.py:__version__'
